@@ -1,0 +1,50 @@
+<head>
+    <script src="static/js/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap/bootstrap.min.css">
+    <script src="static/js/bootstrap/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Grip Strengthener Flappy Birb</h1>
+    </div>
+
+    <div>
+        <button class="btn btn-primary" onclick=sendRandomData()>Set Load (Random)</button>
+        <div id="load_display"></div>
+    </div>
+</body>
+
+<script>
+    function sendRandomData()
+    {
+        set_load(10 * Math.random());
+    }
+
+    function set_load(load_lbs)
+    {
+        load_display = document.getElementById("load_display");
+        load_display.textContent = load_lbs + " lbs";
+
+        var data_to_send = {
+            "load_lbs": load_lbs
+        };
+
+        $.ajax({
+            url: '/set_load',
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(data_to_send),
+            success: function(data) {
+                // Handle the data
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                // Handle errors
+                console.error('Request failed:', textStatus, errorThrown);
+            }
+        });
+    }
+
+    // TODO Put Flappy bird javascript here
+</script>

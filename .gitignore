@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+# Poetry
+poetry.lock
+
+# Distribution / packaging
+.eggs/
+dist/
+build/
+sdist/
+*.egg-info/
+*.deb
+*.rpm
+# Log files and databases
+*.log
+*.sql
+*.sqlite
+
+# OS or Editor-specific files
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
